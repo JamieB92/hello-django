@@ -23,11 +23,13 @@ DEBUG = development
 
 
 if development:
+    ALLOWED_HOSTS = [
+        '8000-jamieb92-hello-django-iimiayg1s6.us2.codeanyapp.com']
     ALLOWED_HOSTS = ['localhost']
 else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
-ALLOWED_HOSTS = ['8000-jamieb92-hello-django-iimiayg1s6.us2.codeanyapp.com']
+
 # Application definition
 
 INSTALLED_APPS = [
