@@ -4,7 +4,7 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-development = os.environ.get('DEVELOPMENT', False)
+development = os.environ.get('DEVELOPMENT', "")
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,8 +23,7 @@ DEBUG = development
 
 if development:
     ALLOWED_HOSTS = [
-        '8000-jamieb92-hello-django-iimiayg1s6.us2.codeanyapp.com']
-    ALLOWED_HOSTS = ['localhost']
+        '8000-jamieb92-hello-django-iimiayg1s6.us2.codeanyapp.com', 'localhost']
 else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
@@ -79,7 +78,7 @@ if development:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')'db.sqlite3'),
         }
     }
 else:
